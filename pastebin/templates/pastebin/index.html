@@ -1,0 +1,12 @@
+<h1>Advik's PASTEBIN</h1>
+<a href="{% url 'pastebin:latest' %}">latest</a>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<h2>New Paste</h2>
+<form action="{% url 'pastebin:create' %}" method="post">
+{% csrf_token %}
+	<textarea name='paste_code' style='width: 100%;height: 250px;'></textarea>
+	Paste Name/Title: <input type="text" name="paste_title"><br>
+	Syntax Highlighting: <select name="paste_format"><option value="Plain Text">Plain Text</option></select><br>
+	<input type="submit" value="Create New Paste">
+</form>

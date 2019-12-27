@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ paste.paste_title }}</title>
+	<style type="text/css">
+	body {
+	    color: #566b78;
+	    font-family: Arial, Helvetica, sans-serif;
+	    line-height: 1.5;
+	    margin: 0 auto;
+	    max-width: 50em;
+	    padding: 4em 1em;
+	}
+	h2 {
+	    margin-top: 1em;
+	    padding-top: 1em;
+	}
+	h1, h2, strong {
+	    color: #333;
+	}
+	code, pre {
+	    background: #f5f7f9;
+	    color: #a7adba;
+	}
+	code {
+	    padding: 2px 4px;
+	    vertical-align: text-bottom;
+	}
+	pre {
+	    border-bottom: 1px solid #d8dee9;
+	    border-left: 2px solid #69c;
+	}
+	a {
+	    color: #e81c4f;
+	}
+	</style>
+</head>
+<body>
+<h1>{{ paste.paste_title }}</h1>
+Paste Format: {{ paste.paste_format }}<br>
+Date Created: {{ paste.pub_date }}<br>
+<button onclick="location.href='{% url 'pastebin:download' paste.id %}';">Download</button>
+<button onclick="location.href='{% url 'pastebin:raw' paste.id %}';">Raw</button>
+<br>
+<pre><code>{{ paste.paste_code }}</code></pre>
+</body>
+</html>

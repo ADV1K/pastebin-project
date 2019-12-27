@@ -1,0 +1,9 @@
+{% if latest_paste_list %}
+	<ul>
+	{% for paste in latest_paste_list %}
+		<li><a href="{% url 'pastebin:details' paste.id %}">{{ paste.paste_title }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No polls are available.</p>
+{% endif %}
